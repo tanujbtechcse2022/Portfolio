@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanuj | Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: rgba(100, 149, 237, 0.8); /* Cornflower blue */
+            --secondary-color: rgba(70, 130, 180, 0.8); /* Steel blue */
+            --text-color: rgba(240, 248, 255, 0.9); /* Alice blue with transparency */
+            --bg-color: rgba(0, 0, 20, 0.95); /* Very dark blue with high transparency */
+            --card-bg: rgba(25, 25, 40, 0.85); /* Dark slate with transparency */
+            --nav-bg: rgba(0, 0, 30, 0.9); /* Darker blue for nav */
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            --transition: all 0.3s ease;
+            --bar-color: #ffffff;
+            --floating-animation: float 3s ease-in-out infinite;
+        }
+
+        /* Enhanced background animation */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(100, 149, 237, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(70, 130, 180, 0.1) 0%, transparent 25%);
+            background-attachment: fixed;
+        }
+
+        /* Animated floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(100, 149, 237, 0.3);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float-sm {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Rest of your original CSS remains exactly the same */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle .bar {
+            height: 3px;
+            width: 25px;
+            background-color: var(--bar-color);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+            transform: rotate(30deg);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            animation: float-sm 4s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .skill-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            animation: float-sm 4s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            margin-bottom: 15px;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .certificate-img:hover {
+            opacity: 0.8;
+        }
+
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            animation: float-sm 4s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .education-skills-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(5px);
+        }
+
+        .subsection-title {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .education-item {
+            margin-bottom: 30px;
+        }
+        
+        .education-period {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .education-details {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .education-details li {
+            position: relative;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        
+        .education-details li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: -20px;
+        }
+
+        .skills-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-category h4 {
+            color: var(--secondary-color);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .skill-category li {
+            position: relative;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .skill-category li:before {
+            content: "🟢";
+            color: var(--primary-color);
+            position: absolute;
+            left: -20px;
+        }
+        .tools-list {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tools-list li {
+            background-color: rgba(100, 149, 237, 0.2);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 15px;
+        }
+
+        /* Download CV Button Styles */
+        .cv-download-container {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .download-cv-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            margin: 10px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .download-cv-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: rgba(70, 110, 200, 0.9);
+        }
+
+        .download-cv-btn i {
+            font-size: 18px;
+        }
+
+        .cv-file-info {
+            display: block;
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        /* Floating Button */
+        .floating-cv-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-cv-btn .btn-text {
+            display: none;
+            white-space: nowrap;
+        }
+
+        .floating-cv-btn:hover {
+            width: auto;
+            padding: 0 25px;
+            border-radius: 30px;
+        }
+
+        .floating-cv-btn:hover .btn-text {
+            display: inline;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: relative;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--nav-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                box-shadow: var(--shadow);
+                z-index: 100;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                z-index: 101;
+            }
+
+            .theme-toggle {
+                position: absolute;
+                right: 60px;
+                top: 20px;
+                z-index: 101;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-categories {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .tools-list {
+                gap: 10px;
+            }
+    
+            .tools-list li {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+
+            .close {
+                top: 15px;
+                right: 15px;
+                font-size: 30px;
+            }
+        }
+    </style>
+
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+<style>
+    .btn {
+        background-image: linear-gradient(to right, #00c6ff, #0072ff);
+        color: white;
+        font-weight: 600;
+    }
+    .btn-outline {
+        border: 2px solid #00c6ff;
+        color: #00c6ff;
+    }
+    .btn-outline:hover {
+        background-image: linear-gradient(to right, #00c6ff, #0072ff);
+        color: white;
+    }
+    .section-title h2 {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+
+<style>
+    .skill-card:hover {
+        box-shadow: 0 0 15px rgba(0, 198, 255, 0.6), 0 0 30px rgba(0, 114, 255, 0.4);
+    }
+</style>
+
+
+<style>
+.project-card, .certificate-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInColorful 1.5s ease-in-out both;
+}
+@keyframes fadeInColorful {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        box-shadow: 0 8px 20px rgba(0,198,255,0.2);
+    }
+}
+.project-card:hover, .certificate-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 198, 255, 0.6);
+}
+</style>
+
+
+<style>
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.certificate-card:hover {
+  animation: jump 0.6s ease-in-out;
+}
+</style>
+
+
+<style>
+@keyframes blink {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,198,255,0.4); }
+  50% { box-shadow: 0 0 20px rgba(0,198,255,0.9); }
+}
+.project-card {
+  animation: blink 3s infinite;
+}
+</style>
+
+
+<style>
+#education-skills {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #f0f8ff;
+  box-shadow: inset 0 0 30px rgba(0, 198, 255, 0.3);
+  border-radius: 20px;
+}
+#education-skills .subsection-title {
+  color: #00c6ff;
+}
+#education-skills ul li:before {
+  content: "🟢";
+  position: absolute;
+  left: -20px;
+}
+</style>
+
+
+<style>
+.project-card:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 0 0 40px rgba(255, 0, 0, 0.6);
+    transform: scale(1.05);
+    transition: all 0.4s ease-in-out;
+}
+.project-img img {
+    transition: transform 0.4s ease-in-out;
+}
+.project-card:hover .project-img img {
+    transform: scale(1.1) rotate(1deg);
+}
+</style>
+
+
+<style>
+/* Gradient text effect on titles */
+.section-title h2,
+.hero .liquid-text {
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #22d3ee);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animatedGradient 8s ease infinite;
+}
+
+/* Gradient hover effect on buttons */
+.btn, .download-cv-btn {
+    background: linear-gradient(to right, #ff6ec4, #7873f5);
+    background-size: 200% auto;
+    transition: 0.5s;
+}
+.btn:hover, .download-cv-btn:hover {
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(255, 110, 196, 0.5);
+    transform: translateY(-3px);
+}
+
+/* Keyframes for animated gradient text */
+@keyframes animatedGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- Loader -->
+<style>
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000c20;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader-logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #00c6ff;
+    animation: pulseGlow 1.5s infinite ease-in-out;
+    font-family: 'Orbitron', sans-serif;
+}
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 10px #00c6ff; }
+    50% { text-shadow: 0 0 20px #00c6ff, 0 0 40px #00c6ff; }
+    100% { text-shadow: 0 0 10px #00c6ff; }
+}
+</style>
+<div id="loader-wrapper">
+  <div class="loader-logo">Tanuj ANALYTICS</div>
+</div>
+<script>
+window.addEventListener("load", () => {
+    document.getElementById("loader-wrapper").style.display = "none";
+});
+</script>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Tanuj </div>
+                <button class="nav-toggle" id="navToggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#Training">Training</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home" data-aos="fade-up">
+        <div class="container">
+            <div class="hero-content">
+
+
+
+<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_jtbfg2nb.json"  
+    background="transparent" speed="1" style="width: 300px; height: 300px; margin: 0 auto;" loop autoplay></lottie-player>
+
+                <h1>Hello, I'm Tanuj</h1>
+                <p><span id="typed"></span></p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <a href="#education-skills" class="btn">Resume</a>
+                </div>
+            </div>
+        </div>
+    
+<div style="text-align:center; margin-top: 40px;">
+  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_V9t630.json"
+    background="transparent" speed="1" style="width: 60px; height: 60px;" loop autoplay></lottie-player>
+</div>
+
+</section>
+
+    <section id="about" class="section" data-aos="fade-left">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about me and my journey as a Software Engineer</p>
+            </div>
+            <div class="about-content">
+                
+                <div class="about-text">
+                    <h3>Software Engineer</h3>
+                    <p>I'm an aspiring Software Engineer with practical experience in building web applications, backend systems, and interactive user interfaces. I work with technologies like Python (Flask), MySQL, HTML, CSS, and JavaScript to develop efficient, scalable, and user-friendly software solutions.</p>
+                    <p>My projects include a full-stack restaurant management system with authentication, a responsive portfolio website, and a Python-based QR code generator. I enjoy solving real problems through clean code, structured architectures, and continuous learning.</p>
+                    <p>I’m actively improving my skills to grow as a software engineer and contribute to impactful real-world projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section" data-aos="fade-right">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Technologies</h2>
+                <p>Here are the technologies and tools I work with</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>PostgreSQL</h3>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-file-excel"></i>
+                    <h3>Excel</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-r-project"></i>
+                    <h3>R</h3>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                </div>
+
+        </div>
+    </section>
+
+    
+<section class="section" id="stats" style="text-align:center;">
+    <div class="container">
+        <div class="section-title"><h2>My Stats</h2></div>
+<div style="text-align:center; margin-bottom: 40px;">
+    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_9cyyl8i4.json"
+        background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+</div>
+
+        <div style="display:flex; justify-content:center; align-items: center; gap:80px; flex-wrap:wrap;">
+            
+            <div><h2><span class="counter" data-target="4">0</span>+</h2><p>Projects</p></div>
+            <div><h2><span class="counter" data-target="6">0</span>+</h2><p>Certificates</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section" data-aos="zoom-in">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Here are some of my recent projects</p>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="rest.jpg" alt="Expense Tracker">
+                    </div>
+                    <div class="project-info">
+                        <h3>Food Restaurant Website</h3>
+                        <p>This full-stack restaurant management system provides an end-to-end solution for menu handling, user authentication, and order processing, offering a seamless experience for both users and administrators through a clean and responsive interface.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/tanujbtechcse2022/Food-restaurant-website"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="download.png" alt="QR generator">
+                    </div>
+                    <div class="project-info">
+                        <h3>QR Generator</h3>
+                        <p>A Python-powered QR code generator with customizable designs, bulk creation, and analytics tracking—turning data into scannable art with 98% accuracy</p>
+                        <div class="project-links">
+                            <a href="https://github.com/tanujbtechcse2022/QR_Generater/blob/main/Qr.py"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="supermarkets.png" alt="AI Image Generator">
+                    </div>
+                    <div class="project-info">
+                        <h3>SuperMarket Management System</h3>
+                        <p>A desktop-based Supermarket Management System for efficient inventory control, sales tracking, and user role management</p>
+                        <div class="project-links">
+                            <a href="https://github.com/tanujbtechcse2022/Supermarket_management_system/blob/main/market.cpp" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="Training" class="section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training</h2>
+                <p>My Trainings and certificates</p>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certicate6.png')">
+                        <img src="t1.png" alt="dsa">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Training in Java using Data structures and Algorithms
+                </h3>
+                        <p>Issued by CipherSchools - August 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate2.png')">
+                        <img src="t2.png" alt="java">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Google Cloud Training </h3>
+                        <p>Issued by Coursera - Apr 2024</p>
+                    </div>
+                </div>
+                
+                <!-- <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate2.png')">
+                        <img src="certificate2.png" alt="java">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Data Analysis with Tableau</h3>
+                        <p>Issued by Coursera - Nov 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate1.jpg')">
+                        <img src="certificate1.jpg" alt="Full stack certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Programming in C++</h3>
+                        <p>Issued by CipherSchools - July 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate3.png')">
+                        <img src="certificate3.png" alt="php">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Excel Skills for Data
+                            Analytics and
+                            Visualization with ChatGPT</h3>
+                        <p>Issued by Cousrera - Apr 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate5.png')">
+                        <img src="certificate5.png" alt="frontend">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Generative AI Primer</h3>
+                        <p>Issued by Cousrera - Jan 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate4.png')">
+                        <img src="certificate4.png" alt="NodeJs">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Certificate of CompTIA Linux+</h3>
+                        <p>Issued by Cybrary - Apr 2024</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section id="certificates" class="section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificates</h2>
+                <p>My achievements and certifications</p>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certicate6.png')">
+                        <img src="certicate6.png" alt="dsa">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Learned Deep Learning: Generative AI with LLM</h3>
+                        <p>Issued by Coursera - Apr 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate2.png')">
+                        <img src="certificate2.png" alt="java">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>SQL for Data Science</h3>
+                        <p>Issued by Great Learning Academy - June 2023</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate1.jpg')">
+                        <img src="certificate1.jpg" alt="Full stack certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Cleared assessment for CSS</h3>
+                        <p>Issued by CipherSchools - Dec 2022</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate3.png')">
+                        <img src="certificate3.png" alt="php">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Excel Skills for Data
+                            Analytics and
+                            Visualization</h3>
+                        <p>Issued by Cousrera - May 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate5.png')">
+                        <img src="certificate5.png" alt="frontend">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Generative AI Primer</h3>
+                        <p>Issued by Cousrera - Jan 2024</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img" onclick="openModal('certificate4.png')">
+                        <img src="certificate4.png" alt="NodeJs">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>CPES training course </h3>
+                        <p>Issued by Cybrary - Apr 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="education-skills" class="section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education & Skills</h2>
+                <p>My academic background and technical capabilities</p>
+                <a href="CV.pdf" download class="btn download-cv-btn">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+            
+            <div class="education-skills-content">
+                <!-- Education Section -->
+                <div class="education-section">
+                    <h3 class="subsection-title">Education</h3>
+                    <div class="education-item">
+                        <h4 class="education-period">2022 - 2026</h4>
+                        <ul class="education-details">
+                            <li>B.Tech in Computer Science & Engineering</li>
+                            <li>Lovely professional University, Phagwara</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="skills-section">
+                    <h3 class="subsection-title">Skills</h3>
+                    <div class="skills-categories">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <ul>
+                                <li>C++</li>
+			
+                                <li>Python</li>
+                                
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Frameworks</h4>
+                            <ul>
+                                
+                                <li>Excel</li>
+                                <li>Linux</li>
+				<li>Git</li>
+				
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Databases</h4>
+                            <ul>
+                                
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools Section -->
+                <div class="tools-section">
+                    <h3 class="subsection-title">Tools & Platforms</h3>
+                    <ul class="tools-list">
+                        <li>GitHub</li>
+                        <li>VS Code</li>
+			<li>Linux</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<div style="text-align:center; margin-top: 40px;">
+    <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_oGlWy5.json"
+        background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+</div>
+
+<div style="text-align:center; margin-top: 40px;">
+    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_0fhlytwe.json"
+        background="transparent" speed="1" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+</div>
+
+<section id="contact" class="section" data-aos="fade-up">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3><a href="mailto:ytanuj831@gmail.com">Email</a></h3>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3><a href="https://www.linkedin.com/in/tanuj-yadav-28a733253" target="_blank">LinkedIn</a></h3>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <h3><a href="https://github.com/tanujbtechcse2022" target="_blank">GitHub</a></h3>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-code"></i>
+                    <h3><a href="https://leetcode.com/u/ytanuj831" target="_blank">Leetcode</a></h3>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/tanuj-yadav-28a733253/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/rohitrao8" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="https://x.com/Rohitrao_8?t=h_Xxr4FTFumxiIY_2wGpUg&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/rohitrao_8?igsh=azk1dGt6djY5dnVz" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://leetcode.com/u/rohitrao_8" target="_blank"><i class="fas fa-code"></i></a>
+            </div>
+            <p>&copy; 2025 Tanuj. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- The Modal -->
+    <div id="certificateModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <script>
+        
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+
+           // Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+    });
+
+    function openModal(imageSrc) {
+        const modal = document.getElementById('certificateModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.style.display = "block";
+        modalImg.src = imageSrc;
+
+        // Disable body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+        function closeModal() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = "none";
+            
+            // Re-enable body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+          // Close modal with Escape key
+          document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                closeModal();
+            }
+        });
+
+
+    </script>
+
+<script>
+    AOS.init({ duration: 1200, once: true });
+    new Typed('#typed', {
+        strings: ['Software Engineer', 'Student', 'AI Enthusiast'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true
+    });
+</script>
+
+
+<script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        counter.innerText = '0';
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target');
+            const current = +counter.innerText;
+            const increment = target / 100;
+
+            if (current < target) {
+                counter.innerText = `${Math.ceil(current + increment)}`;
+                setTimeout(updateCounter, 30);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCounter();
+    });
+</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    VanillaTilt.init(document.querySelectorAll(".project-card, .skill-card, .certificate-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3
+    });
+});
+</script>
+
+</body>
+</html>
